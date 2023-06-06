@@ -1,0 +1,9 @@
+version: '2'
+services:
+  web:
+    container_name: DirectoryExplorer
+    build: .
+    ports:
+      - "80:80"
+    volumes:
+      - .:/app

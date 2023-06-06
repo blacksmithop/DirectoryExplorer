@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="color-scheme" content="light dark" />
+<title>Index of /books</title>
+<link href="{{ https_url_for(request, 'static', search='/index-style.css') }}" rel="stylesheet">
+<link href="{{ https_url_for('static', search='//favicon.ico') }}" rel="stylesheet">
+<!-- <link href="{{ url_for('static', path='/index-style.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', path='//favicon.ico') }}" rel="stylesheet"> -->
+</head>
+<body>
+<h1>Index of /books</h1>
+<ul>
+<li class="pdf">
+<span class="icon"></span>
+<a href="{{ path }}/Attention Is All You Need.pdf">{{ path }}/Attention Is All You Need.pdf</a>
+</li>
+<li class="pdf">
+<span class="icon"></span>
+<a href="{{ path }}/Hands-On Genetic Algorithms with Python.pdf">{{ path }}/Hands-On Genetic Algorithms with Python.pdf</a>
+</li>
+<li class="pdf">
+<span class="icon"></span>
+<a href="{{ path }}/Natural Language Processing with TensorFlow.pdf">{{ path }}/Natural Language Processing with TensorFlow.pdf</a>
+</li>
+</ul>
+</body>
+</html>
