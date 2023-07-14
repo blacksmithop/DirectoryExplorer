@@ -6,13 +6,12 @@ WORKDIR /code
 # set environment variables
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
+# ignore pip as root warning
+ENV PIP_ROOT_USER_ACTION=ignore
 
 RUN pip install --user jinja2 && pip install fastapi uvicorn --no-cache-dir && apt-get autoremove -y
 
 COPY . /code/
-# COPY auto-index /app/auto-index
-# COPY app /app/app
-# COPY static /app/static
 
 RUN cd auto-index && python auto-index.py /code/static/
 
