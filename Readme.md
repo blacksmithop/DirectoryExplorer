@@ -1,5 +1,7 @@
 # FastApi Directory Explorer
 
+[![Docker Image CI](https://github.com/blacksmithop/DirectoryExplorer/actions/workflows/docker-image.yml/badge.svg)](https://github.com/blacksmithop/DirectoryExplorer/actions/workflows/docker-image.yml)
+
 Index and serve your static files through FastAPI
 
 Credits to [sharmaeklvaya2](https://github.com/sharmaeklavya2/) for developing [auto-index](https://github.com/sharmaeklavya2/auto-index)
