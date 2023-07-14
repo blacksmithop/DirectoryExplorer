@@ -2,7 +2,7 @@ version: '2'
 services:
   web:
     container_name: DirectoryExplorer
-    image: zeronedocker.azurecr.io/directory-explorer
+    image: blacksmithop/directory-explorer
     ports:
       - "80:80"
     volumes:
