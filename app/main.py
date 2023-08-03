@@ -44,7 +44,7 @@ async def get_directory(request: Request, folder_name: str):
     
 @app.get("/{folder_name}/{file_name}")
 async def get_file(request: Request, folder_name: str, file_name: str):
-    if re.search(LANG_EXPR, file_name):
+    if not file_name.endswith(".pdf"):
         with open(f"static/{folder_name}/{file_name}", "r") as fp:
             code = fp.read()
 
