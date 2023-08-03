@@ -4,9 +4,18 @@ from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from typing import Any
-
+import re
 
 app = FastAPI(docs_url=None, redoc_url=None)
+
+LANG_EXPR = r"(.*)\.(?P<extension>.*)"
+
+ext2lang = {
+    "py": "python",
+    "css": "css",
+    "js": "js",
+    "html" : "html"
+}
 
 app.mount("/static", StaticFiles(directory="static"), name="static")
 templates = Jinja2Templates(directory="static")
@@ -35,4 +44,18 @@ async def get_directory(request: Request, folder_name: str):
     
 @app.get("/{folder_name}/{file_name}")
 async def get_file(request: Request, folder_name: str, file_name: str):
+    if re.search(LANG_EXPR, file_name):
+        with open(f"static/{folder_name}/{file_name}", "r") as fp:
+            code = fp.read()
+
+        try: 
+            extension = re.findall(LANG_EXPR, file_name)[0][1]
+        except Exception:
+            extension = "json"
+
+        language = ext2lang.get(extension, "json")
+        language = f"language-{extension}"
+
+        return templates.TemplateResponse("code-template.html", {"request": request, "code": code, "language": language})
+    
     return FileResponse(f"static/{folder_name}/{file_name}")

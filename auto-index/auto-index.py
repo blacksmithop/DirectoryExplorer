@@ -19,6 +19,10 @@ index.html
 Thumbs.db
 Desktop.ini
 .DS_Store
+code-template.html
+prism.html
+prism.js
+prism.css
 """.split())
 
 IGNORE_EXTS = set("""
