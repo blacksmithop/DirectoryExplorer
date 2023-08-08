@@ -52,7 +52,5 @@ jobs:
         with:
           context: "{{defaultContext}}"
           push: true
-          tags: |
-            # set latest tag for master branch
-            type=raw,value=latest,enable=${{ github.ref == format('refs/heads/{0}', 'main') }}
-                    labels: ${{ steps.meta.outputs.labels }}
+          tags: type=raw,value=latest,enable=${{ github.ref == format('refs/heads/{0}', 'main') }}
+          labels: ${{ steps.meta.outputs.labels }}
